@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penguinn Call List — Demo</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="css/jumbotron.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top noprint" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Penguinn Call List</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div class="container" id="jumbotronContainer">
+      <div class="alert alert-info demo-banner">
+        Portfolio demo with fictional sample calls. Drag a card to change its priority, or open one to edit it. Nothing is saved after a reload.
+      </div>
+      <div class="alert alert-info moveCallAlert" id="callMoveSuccess" style="display:none;"><strong>Call updated</strong></div>
+      <h2 id="clock">Calls</h2>
+      <div class="row">
+        <div class="col-md-4 col-sm-4">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Low Priority <span class="badge" id="lblLowCount">0</span></h3>
+            </div>
+            <div class="panel-body priorities" id="lowPnl" data-priority="low"></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Medium Priority <span class="badge" id="lblMedCount">0</span></h3>
+            </div>
+            <div class="panel-body priorities" id="medPnl" data-priority="medium"></div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">High Priority <span class="badge" id="lblHighCount">0</span></h3>
+            </div>
+            <div class="panel-body priorities" id="highPnl" data-priority="high"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <button id="btnAddCall" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addCallModal">Add a Call</button>
+    <footer class="noPrint">
+      <p>&copy; Penguinn Inc. 2026 — static portfolio demo</p>
+    </footer>
+  </div>
+
+  <div class="modal fade" id="viewCallModal" tabindex="-1" role="dialog" aria-labelledby="viewCallTitle">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="viewCallTitle">View call for <b id="vcHName"></b><br>Call date: <b id="vcHDate"></b></h4>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="hfVCallID">
+          <div class="form-group">
+            <label for="tbVCustAddress">Location</label>
+            <input id="tbVCustAddress" class="form-control" type="text" disabled>
+          </div>
+          <div class="form-group">
+            <label for="tbVCPhone">Phone</label>
+            <input id="tbVCPhone" class="form-control" type="text" disabled>
+          </div>
+          <div class="form-group">
+            <label for="tbVCDescription">Description</label>
+            <input id="tbVCDescription" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="tbVCComments">Comments</label>
+            <textarea id="tbVCComments" class="form-control" rows="4"></textarea>
+          </div>
+          <div class="checkbox">
+            <label><input id="cbParts" type="checkbox"> Parts ordered or warranty</label>
+          </div>
+          <div class="form-group">
+            <label for="tbParts">Parts note</label>
+            <textarea id="tbParts" class="form-control" rows="2"></textarea>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-4">
+              <label for="dlVCPriority">Priority</label>
+              <select id="dlVCPriority" class="form-control">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="form-group col-xs-4">
+              <label for="dlVCTech">Service tech</label>
+              <select id="dlVCTech" class="form-control"></select>
+            </div>
+            <div class="form-group col-xs-4">
+              <label for="tbInvoice">Invoice</label>
+              <input id="tbInvoice" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" style="float:left;" id="btnCallComplete">Close Call</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" id="saveViewCall">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="addCallModal" tabindex="-1" role="dialog" aria-labelledby="addCallTitle">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="addCallForm">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="addCallTitle">Add a call</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="tbCustName">Customer name</label>
+              <input id="tbCustName" class="form-control" type="text" placeholder="Sample customer">
+            </div>
+            <div class="form-group">
+              <label for="tbCustPhone">Phone</label>
+              <input id="tbCustPhone" class="form-control" type="text" placeholder="555-0100">
+            </div>
+            <div class="form-group">
+              <label for="tbAddDescription">Description</label>
+              <input id="tbAddDescription" class="form-control" type="text" placeholder="What needs service?">
+            </div>
+            <div class="row">
+              <div class="form-group col-xs-6">
+                <label for="dlAddPriority">Priority</label>
+                <select id="dlAddPriority" class="form-control">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div class="form-group col-xs-6">
+                <label for="dlAddTech">Service tech</label>
+                <select id="dlAddTech" class="form-control"></select>
+              </div>
+            </div>
+            <div class="checkbox">
+              <label><input id="cbAddParts" type="checkbox"> Parts are on order</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="btnSaveNewCall">Add Call</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery-2.1.0.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/sample-data.js"></script>
+  <script src="js/board.js"></script>
+</body>
+</html>

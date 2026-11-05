@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penguinn Call List — Reports</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="css/jumbotron.css" rel="stylesheet">
+  <link href="css/print.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top noPrint" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Penguinn Call List</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="reports.html">Reports</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-header noPrint">
+      <h2>Call Reports</h2>
+      <p class="demo-banner">Same fictional sample calls as the board. Filters run in the browser.</p>
+    </div>
+
+    <div class="panel panel-default noPrint">
+      <div class="panel-heading"><h3 class="panel-title"><b>Report variables</b></h3></div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="dlTech">Sort calls by service tech</label>
+            <div class="input-group">
+              <span class="input-group-addon"><input type="checkbox" id="cbTech"></span>
+              <select id="dlTech" class="form-control">
+                <option value="">All techs</option>
+              </select>
+            </div>
+            <br>
+            <label for="tbCustName">Search by customer name</label>
+            <input id="tbCustName" class="form-control" type="text" placeholder="Customer name">
+          </div>
+          <div class="col-sm-5">
+            <label>Calls with</label>
+            <div class="btn-group" id="invoiceGroup">
+              <button type="button" class="btn btn-default" data-filter="none">No invoices</button>
+              <button type="button" class="btn btn-default" data-filter="invoiced">Invoices</button>
+              <button type="button" class="btn btn-primary active" data-filter="all">All</button>
+              <button type="button" class="btn btn-default" data-filter="void">VOID</button>
+            </div>
+            <br><br>
+            <label for="tbInvNum">Search by invoice number</label>
+            <input id="tbInvNum" class="form-control" type="text" placeholder="Invoice number">
+            <br>
+            <label>Calls are</label>
+            <div class="btn-group" id="statusGroup">
+              <button type="button" class="btn btn-default" data-filter="inactive">Inactive</button>
+              <button type="button" class="btn btn-default" data-filter="active">Active</button>
+              <button type="button" class="btn btn-primary active" data-filter="both">Both</button>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <label>Date order</label>
+            <div class="btn-group" id="orderGroup">
+              <button type="button" class="btn btn-primary active" data-filter="asc">Ascending</button>
+              <button type="button" class="btn btn-default" data-filter="desc">Descending</button>
+            </div>
+            <br><br>
+            <label for="fromDate">From</label>
+            <input id="fromDate" class="form-control" type="date">
+            <label for="toDate">To</label>
+            <input id="toDate" class="form-control" type="date">
+          </div>
+        </div>
+        <button type="button" id="btnPrintReport" class="btn btn-default pull-right">Print Report</button>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <h2>Calls Report</h2>
+    <h4 id="reportRange" class="sub-header"></h4>
+    <p id="reportCount" class="report-summary"></p>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Invoice Number</th>
+            <th>Customer Name</th>
+            <th>Call Date</th>
+            <th>Finish Date</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Service Tech</th>
+          </tr>
+        </thead>
+        <tbody id="reportBody"></tbody>
+      </table>
+    </div>
+    <footer class="noPrint">
+      <p>&copy; Penguinn Inc. 2026 — static portfolio demo</p>
+    </footer>
+  </div>
+
+  <script src="js/jquery-2.1.0.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/sample-data.js"></script>
+  <script src="js/reports.js"></script>
+</body>
+</html>

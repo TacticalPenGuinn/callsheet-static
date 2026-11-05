@@ -1,0 +1,90 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.callHeading
+{
+    font-size:1.7rem;
+    font-weight:900;
+}
+
+.alert p
+{
+line-height: 1.2;
+font-size:1.6rem;
+}
+
+.priorities{
+   overflow:scroll;
+   height:375px;
+}
+
+.grabbed{
+ 
+}
+
+.edit{
+
+    float:right;
+
+}
+
+.callMove
+{
+    float: right;
+    margin-right: 10px;
+}
+
+.grabbed .edit{
+
+    display: none;
+
+}
+.grabbed .callMove{
+
+    display: none;
+}
+.grabbed .callText{
+
+    display:none;
+}
+
+.call strong:hover {
+    color:white;
+    cursor: pointer;
+
+}
+
+.call .callMove:hover {
+    color:white;
+    cursor: pointer;
+
+}
+
+.grabbed strong:hover{
+
+    color:red;
+    
+
+}
+.grabbed strong{
+    color:red;
+    font-size:small;
+
+}
+
+.moveCallAlert{
+    position:absolute;
+    top:9.5%;
+    right: 10%;
+    width: 80%;
+
+}
+
+.ui-datepicker-month, .ui-datepicker-year {
+
+    background:darkolivegreen;
+    background-color:darkolivegreen;
+}

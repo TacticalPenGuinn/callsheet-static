@@ -1,0 +1,27 @@
+.demo-banner {
+  margin-bottom: 12px;
+}
+
+.priorities.drop-target {
+  outline: 2px dashed #666;
+  outline-offset: -6px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.call {
+  cursor: grab;
+}
+
+.call button {
+  cursor: pointer;
+}
+
+.empty-col {
+  color: #777;
+  font-style: italic;
+  margin: 8px 4px;
+}
+
+.report-summary {
+  margin-top: 8px;
+}

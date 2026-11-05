@@ -1,0 +1,71 @@
+﻿@media print {
+
+    body {
+        background: white;
+        font-size: 12pt;
+    }
+
+    table {
+        width: 100%;
+        font-size: 12px;
+        padding:0;
+        margin:0;
+    }
+
+    .table{
+        padding:0;
+    }
+    tbody{
+        padding:0
+    }
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding:3px;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding:3px;
+}
+
+    .sub-header {
+        border-bottom: 1px solid black;
+    }
+
+    th, td {
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
+    tr, td, th{
+        font-size:12px;
+        padding:0;
+        padding:3px;
+    }
+
+    h1, h2, h3, h4, p {
+        margin-bottom: 5px;
+        margin-top: 0;
+        font-size: 14px;
+    }
+
+    .btnVc, .btnInv, .callPry, .empSpace {
+        display: none;
+    }
+
+    td.tdInvNum {
+        text-align: right;
+    }
+
+    th.tdInvNum, th.tdDate {
+        width: 75px;
+    }
+
+    .tdSrvTech, .tdDate {
+        text-align: center;
+    }
+
+        .noPrint{
+        display:none;
+    }
+
+
+}

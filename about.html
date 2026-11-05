@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penguinn Call List — About</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="css/jumbotron.css" rel="stylesheet">
+  <link href="css/demo.css" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Penguinn Call List</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reports.html">Reports</a></li>
+          <li class="active"><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="page-header">
+      <h2>About this demo</h2>
+    </div>
+    <p>This is a static recreation of the Penguinn call sheet, a shop board I originally built in PHP and MySQL. Technicians used it to see open service calls by priority, move work between columns, and pull a simple report.</p>
+    <p>The live shop app needed a PHP server. This copy is plain HTML, CSS, and JavaScript so it can sit on a static site. The calls, customers, phone numbers, and addresses on these pages are fictional sample data.</p>
+    <p>You can drag a call to another priority, edit it, close it, or add one. The reports page filters the same sample set. Leaving a page or reloading brings the original sample back. Nothing is stored.</p>
+    <p>Blue cards are calls waiting on parts or a warranty part. Green, yellow, and red cards are low, medium, and high priority.</p>
+    <footer>
+      <p>&copy; Penguinn Inc. 2026 — static portfolio demo</p>
+    </footer>
+  </div>
+
+  <script src="js/jquery-2.1.0.js"></script>
+  <script src="js/bootstrap.js"></script>
+</body>
+</html>
